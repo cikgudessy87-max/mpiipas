@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Macam-Macam Gaya di Sekitar Kita - Cikgu Dessy</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts Poppins & Comic Neue -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            coastal: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              500: '#0284c7',
+              600: '#0369a1',
+              700: '#075985',
+            },
+            cheerful: {
+              yellow: '#facc15',
+              orange: '#fb923c',
+              green: '#22c55e',
+              emerald: '#10b981',
+              purple: '#a855f7',
+              coral: '#f43f5e'
+            }
+          },
+          fontFamily: {
+            heading: ['Fredoka', 'sans-serif'],
+            body: ['Nunito', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Nunito', sans-serif;
+      user-select: none;
+    }
+    h1, h2, h3, .font-fun {
+      font-family: 'Fredoka', cursive, sans-serif;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #0284c7;
+      border-radius: 999px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #e0f2fe;
+    }
+    @keyframes floatGentle {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    .animate-float {
+      animation: floatGentle 3s ease-in-out infinite;
+    }
+    .watermark-badge {
+      backdrop-filter: blur(8px);
+    }
+    @media print {
+      .no-print { display: none !important; }
+      .print-only { display: block !important; }
+      body { background: white !important; color: black !important; }
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-sky-100 via-coastal-50 to-emerald-50 min-h-screen text-slate-800 flex flex-col justify-between">
+
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-md border-b-4 border-coastal-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between flex-wrap gap-2">
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 bg-gradient-to-tr from-coastal-500 to-emerald-400 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-coastal-500/30 transform hover:rotate-6 transition">
+          <i class="fa-solid fa-atom text-2xl animate-spin-slow"></i>
+        </div>
+        <div>
+          <span class="text-xs font-bold tracking-wider uppercase text-coastal-600 bg-sky-100 px-2 py-0.5 rounded-full inline-block">
+            IPAS KELAS IV SD
+          </span>
+          <h1 class="text-lg sm:text-xl font-bold text-slate-800 leading-tight">
+            Macam-Macam Gaya di Sekitar Kita
+          </h1>
+          <p class="text-xs text-slate-500 flex items-center gap-1.5">
+            <span><i class="fa-solid fa-chalkboard-user text-coastal-500"></i> Cikgu Dessy</span>
+            <span>•</span>
+            <span><i class="fa-solid fa-school text-emerald-500"></i> SD Negeri 004 Singkep Pesisir</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button id="soundToggleBtn" onclick="toggleAudio()" class="px-3 py-2 bg-amber-100 hover:bg-amber-200 text-amber-800 rounded-xl font-semibold text-xs flex items-center gap-2 border border-amber-300 shadow-sm transition active:scale-95" title="Suara Interaktif">
+          <i id="soundIcon" class="fa-solid fa-volume-high text-amber-600"></i>
+          <span class="hidden sm:inline">Efek Suara: ON</span>
+        </button>
+        <span class="watermark-badge px-3 py-1.5 bg-sky-600/10 text-coastal-700 font-bold text-xs rounded-xl border border-sky-300/60 shadow-sm">
+          <i class="fa-solid fa-certificate text-coastal-500 mr-1"></i>@cikgudessy
+        </span>
+      </div>
+    </div>
+
+    <nav class="bg-coastal-50 border-t border-sky-100 px-4 py-2">
+      <div class="max-w-7xl mx-auto flex items-center justify-start sm:justify-center gap-2 overflow-x-auto custom-scroll text-sm">
+        <button onclick="switchTab('beranda')" id="nav-beranda" class="tab-btn px-4 py-2 rounded-xl font-bold transition flex items-center gap-2 whitespace-nowrap bg-coastal-500 text-white shadow-md">
+          <i class="fa-solid fa-house"></i> Beranda
+        </button>
+        <button onclick="switchTab('materi')" id="nav-materi" class="tab-btn px-4 py-2 rounded-xl font-bold transition flex items-center gap-2 whitespace-nowrap bg-white text-slate-700 hover:bg-sky-100 border border-slate-200">
+          <i class="fa-solid fa-book-open-reader text-coastal-500"></i> 7 Macam Gaya
+        </button>
+        <button onclick="switchTab('proses')" id="nav-proses" class="tab-btn px-4 py-2 rounded-xl font-bold transition flex items-center gap-2 whitespace-nowrap bg-white text-slate-700 hover:bg-sky-100 border border-slate-200">
+          <i class="fa-solid fa-flask-vial text-emerald-500"></i> Lab Penyelidikan
+        </button>
+        <button onclick="switchTab('kuis')" id="nav-kuis" class="tab-btn px-4 py-2 rounded-xl font-bold transition flex items-center gap-2 whitespace-nowrap bg-white text-slate-700 hover:bg-sky-100 border border-slate-200">
+          <i class="fa-solid fa-gamepad text-amber-500"></i> Kuis Detektif Gaya
+        </button>
+        <button onclick="switchTab('lkpd')" id="nav-lkpd" class="tab-btn px-4 py-2 rounded-xl font-bold transition flex items-center gap-2 whitespace-nowrap bg-white text-slate-700 hover:bg-sky-100 border border-slate-200">
+          <i class="fa-solid fa-clipboard-list text-purple-500"></i> Lembar Penyelidikan (LKPD)
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="flex-grow max-w-7xl w-full mx-auto p-4 sm:p-6">
+
+    <section id="section-beranda" class="tab-content transition-all duration-300">
+      <!-- Hero Banner -->
+      <div class="relative bg-gradient-to-r from-sky-500 via-coastal-600 to-teal-600 rounded-3xl p-6 sm:p-10 text-white shadow-xl overflow-hidden mb-8">
+        <div class="absolute -right-10 -bottom-10 opacity-15 text-9xl pointer-events-none">
+          <i class="fa-solid fa-magnet"></i>
+        </div>
+        <div class="relative z-10 max-w-2xl">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-yellow-400 text-slate-900 rounded-full font-bold text-xs uppercase tracking-wide mb-3 shadow">
+            <i class="fa-solid fa-compass"></i> Petualangan Sains Pesisir
+          </span>
+          <h2 class="text-2xl sm:text-4xl font-extrabold mb-3 leading-tight">
+            Hai Ilmuwan Cilik Singkep Pesisir! 👋
+          </h2>
+          <p class="text-sky-100 text-sm sm:text-base leading-relaxed mb-6 font-medium">
+            Pernahkah kamu mendayung perahu pompong, menendang bola di tepi pantai, atau melihat buah kelapa jatuh ke tanah? Semua peristiwa itu terjadi karena adanya <span class="bg-yellow-300/30 font-bold px-1 rounded text-yellow-200">GAYA</span>! Mari kita selidiki rahasia di baliknya bersama Cikgu Dessy.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <button onclick="switchTab('proses')" class="px-5 py-3 bg-yellow-400 hover:bg-yellow-300 text-slate-900 font-extrabold rounded-2xl shadow-lg hover:shadow-yellow-400/40 transition transform active:scale-95 flex items-center gap-2 text-sm">
+              <i class="fa-solid fa-magnifying-glass-chart"></i> Mulai Penyelidikan
+            </button>
+            <button onclick="switchTab('materi')" class="px-5 py-3 bg-white/20 hover:bg-white/30 backdrop-blur-md text-white font-bold rounded-2xl border border-white/40 transition active:scale-95 flex items-center gap-2 text-sm">
+              <i class="fa-solid fa-lightbulb"></i> Pelajari Jenis Gaya
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-md border border-sky-100 mb-8">
+        <div class="text-center max-w-2xl mx-auto mb-6">
+          <h3 class="text-xl sm:text-2xl font-bold text-slate-800">Apa Itu Gaya? 🤔</h3>
+          <p class="text-sm text-slate-600 mt-1">
+            Gaya adalah <strong class="text-coastal-600 font-extrabold">tarikan</strong> atau <strong class="text-emerald-600 font-extrabold">dorongan</strong> yang diberikan kepada suatu benda sehingga benda dapat bergerak, berubah arah, atau berubah bentuk.
+          </p>
+        </div>
+
+        <!-- Interactive Sandbox: Dorong vs Tarik -->
+        <div class="bg-gradient-to-b from-sky-50 to-slate-100 rounded-2xl p-6 border border-sky-200">
+          <div class="text-center font-bold text-slate-700 text-sm mb-3">
+            Simulasi Interaktif: Uji Coba Pengaruh Tarikan & Dorongan pada Kotak
+          </div>
+          <div class="relative w-full h-32 bg-white rounded-2xl border-2 border-dashed border-sky-300 overflow-hidden flex items-center justify-center p-4">
+            <!-- Ground line -->
+            <div class="absolute bottom-2 left-0 right-0 h-1 bg-amber-300"></div>
+            <!-- Interactive Box -->
+            <div id="simBox" class="relative transition-all duration-300 transform flex flex-col items-center justify-center bg-amber-500 text-white font-bold w-20 h-16 rounded-xl shadow-lg border-2 border-amber-600">
+              <i class="fa-solid fa-box text-xl"></i>
+              <span class="text-xs">Benda</span>
+            </div>
+          </div>
+          <div class="mt-4 flex flex-wrap justify-center items-center gap-3">
+            <button onclick="simulateForce('dorongKiri')" class="px-4 py-2.5 bg-coastal-500 hover:bg-coastal-600 text-white rounded-xl font-bold text-xs sm:text-sm shadow active:scale-95 transition flex items-center gap-2">
+              <i class="fa-solid fa-arrow-left"></i> Dorong ke Kiri
+            </button>
+            <button onclick="simulateForce('reset')" class="px-4 py-2.5 bg-slate-200 hover:bg-slate-300 text-slate-700 rounded-xl font-bold text-xs sm:text-sm active:scale-95 transition">
+              <i class="fa-solid fa-rotate-left"></i> Posisi Semula
+            </button>
+            <button onclick="simulateForce('dorongKanan')" class="px-4 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl font-bold text-xs sm:text-sm shadow active:scale-95 transition flex items-center gap-2">
+              Dorong ke Kanan <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+          <p id="forceFeedback" class="text-center text-xs sm:text-sm font-semibold text-slate-600 mt-3 italic">
+            Klik tombol di atas untuk memberikan gaya dorongan pada kotak!
+          </p>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
+          <i class="fa-solid fa-bolt-lightning text-amber-500"></i>
+          Apa Saja Pengaruh Gaya terhadap Benda?
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="bg-white p-5 rounded-2xl border border-sky-100 shadow-sm hover:shadow-md transition">
+            <div class="w-12 h-12 bg-sky-100 text-sky-600 rounded-xl flex items-center justify-center text-xl mb-3 font-bold">1</div>
+            <h4 class="font-bold text-slate-800 text-base mb-1">Membuat Benda Diam Menjadi Bergerak</h4>
+            <p class="text-xs text-slate-600">Contoh: Mendorong meja di kelas IV atau menendang bola di lapangan Singkep Pesisir.</p>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-sky-100 shadow-sm hover:shadow-md transition">
+            <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl mb-3 font-bold">2</div>
+            <h4 class="font-bold text-slate-800 text-base mb-1">Membuat Benda Bergerak Menjadi Diam</h4>
+            <p class="text-xs text-slate-600">Contoh: Menginjak rem sepeda saat sampai di sekolah atau menangkap bola yang dilempar kawan.</p>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-sky-100 shadow-sm hover:shadow-md transition">
+            <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center text-xl mb-3 font-bold">3</div>
+            <h4 class="font-bold text-slate-800 text-base mb-1">Mengubah Arah dan Kecepatan Gerak</h4>
+            <p class="text-xs text-slate-600">Contoh: Membelokkan setang sepeda atau mengayuh perahu lebih kencang saat melawan ombak.</p>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-sky-100 shadow-sm hover:shadow-md transition">
+            <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center text-xl mb-3 font-bold">4</div>
+            <h4 class="font-bold text-slate-800 text-base mb-1">Mengubah Bentuk Benda</h4>
+            <p class="text-xs text-slate-600">Contoh: Meremas plastisin mainan, meremas kaleng bekas, atau menekan spons pencuci piring.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="section-materi" class="tab-content hidden transition-all duration-300">
+      <div class="text-center max-w-3xl mx-auto mb-8">
+        <span class="px-3 py-1 bg-sky-200 text-coastal-700 font-bold text-xs rounded-full uppercase tracking-wider">
+          Eksplorasi Konsep IPAS
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-800 mt-2">
+          7 Macam Gaya di Kehidupan Kita
+        </h2>
+        <p class="text-sm text-slate-600 mt-2">
+          Klik setiap kartu gaya di bawah ini untuk melihat animasi, penjelasan, dan contoh nyata di lingkungan SDN 004 Singkep Pesisir!
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Gaya 1: Gaya Otot -->
+        <div class="bg-white rounded-3xl p-6 shadow-md border-2 border-sky-100 hover:border-coastal-400 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center text-2xl shadow-inner">
+                <i class="fa-solid fa-person-walking"></i>
+              </div>
+              <span class="text-xs font-bold px-3 py-1 bg-orange-50 text-orange-600 rounded-full border border-orange-200">Gaya Sentuh</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-800 mb-2">1. Gaya Otot</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              Gaya yang dihasilkan oleh otot tubuh manusia atau hewan saat melakukan aktivitas fisik.
+            </p>
+            <div class="bg-orange-50 rounded-2xl p-4 border border-orange-100 mb-4">
+              <p class="text-xs font-bold text-orange-800 mb-1 flex items-center gap-1.5">
+                <i class="fa-solid fa-anchor text-orange-500"></i> Contoh di Singkep Pesisir:
+              </p>
+              <ul class="text-xs text-slate-700 list-disc list-inside space-y-1">
+                <li>Nelayan mendayung sampan ke laut.</li>
+                <li>Murid kelas IV mengangkat tas sekolah.</li>
+                <li>Mendorong meja belajar saat piket.</li>
+              </ul>
+            </div>
+          </div>
+          <button onclick="playMiniDemo('otot')" class="w-full py-2.5 bg-orange-500 hover:bg-orange-600 text-white rounded-xl font-bold text-xs transition active:scale-95 flex items-center justify-center gap-2">
+            <i class="fa-solid fa-play"></i> Coba Animasi Gaya Otot
+          </button>
+        </div>
+
+        <!-- Gaya 2: Gaya Gesek -->
+        <div class="bg-white rounded-3xl p-6 shadow-md border-2 border-sky-100 hover:border-emerald-400 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-2xl shadow-inner">
+                <i class="fa-solid fa-shoe-prints"></i>
+              </div>
+              <span class="text-xs font-bold px-3 py-1 bg-emerald-50 text-emerald-600 rounded-full border border-emerald-200">Gaya Sentuh</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-800 mb-2">2. Gaya Gesek</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              Gaya yang terjadi ketika dua permukaan benda saling bersentuhan dan bergesekan. Arah gayanya berlawanan arah dengan arah gerak benda.
+            </p>
+            <div class="bg-emerald-50 rounded-2xl p-4 border border-emerald-100 mb-4">
+              <p class="text-xs font-bold text-emerald-800 mb-1 flex items-center gap-1.5">
+                <i class="fa-solid fa-bicycle text-emerald-600"></i> Contoh Nyata:
+              </p>
+              <ul class="text-xs text-slate-700 list-disc list-inside space-y-1">
+                <li>Karet rem sepeda bergesekan dengan roda.</li>
+                <li>Alas sepatu beralur agar tidak licin di lantai.</li>
+                <li>Permukaan aspal kasar menahan ban kendaraan.</li>
+              </ul>
+            </div>
+          </div>
+          <button onclick="playMiniDemo('gesek')" class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold text-xs transition active:scale-95 flex items-center justify-center gap-2">
+            <i class="fa-solid fa-play"></i> Uji Permukaan Kasar vs Licin
+          </button>
+        </div>
+
+        <!-- Gaya 3: Gaya Gravitasi -->
+        <div class="bg-white rounded-3xl p-6 shadow-md border-2 border-sky-100 hover:border-indigo-400 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center text-2xl shadow-inner">
+                <i class="fa-solid fa-apple-whole"></i>
+              </div>
+              <span class="text-xs font-bold px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full border border-indigo-200">Gaya Tak Sentuh</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-800 mb-2">3. Gaya Gravitasi</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              Gaya tarik bumi yang menarik seluruh benda di sekitarnya menuju ke pusat bumi.
+            </p>
+            <div class="bg-indigo-50 rounded-2xl p-4 border border-indigo-100 mb-4">
+              <p class="text-xs font-bold text-indigo-800 mb-1 flex items-center gap-1.5">
+                <i class="fa-solid fa-tree text-indigo-600"></i> Contoh di Pesisir:
+              </p>
+              <ul class="text-xs text-slate-700 list-disc list-inside space-y-1">
+                <li>Buah kelapa matang jatuh ke tanah.</li>
+                <li>Batu kerikil dilempar ke atas kembali jatuh.</li>
+                <li>Air hujan turun dari awan ke bumi.</li>
+              </ul>
+            </div>
+          </div>
+          <button onclick="playMiniDemo('gravitasi')" class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold text-xs transition active:scale-95 flex items-center justify-center gap-2">
+            <i class="fa-solid fa-play"></i> Jatuhkan Buah Kelapa
+          </button>
+        </div>
+
+        <!-- Gaya 4: Gaya Magnet -->
+        <div class="bg-white rounded-3xl p-6 shadow-md border-2 border-sky-100 hover:border-red-400 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center text-2xl shadow-inner">
+                <i class="fa-solid fa-magnet"></i>
+              </div>
+              <span class="text-xs font-bold px-3 py-1 bg-red-50 text-red-600 rounded-full border border-red-200">Gaya Tak Sentuh</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-800 mb-2">4. Gaya Magnet</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              Gaya tarik atau tolak yang dihasilkan oleh magnet terhadap benda berbahan besi, baja, atau nikel.
+            </p>
+            <div class="bg-red-50 rounded-2xl p-4 border border-red-100 mb-4">
+              <p class="text-xs font-bold text-red-800 mb-1 flex items-center gap-1.5">
+                <i class="fa-solid fa-compass text-red-600"></i> Contoh Nyata:
+              </p>
+              <ul class="text-xs text-slate-700 list-disc list-inside space-y-1">
+                <li>Ujung magnet menarik paku dan klip kertas.</li>
+                <li>Kutub senama tolak-menolak, tak senama tarik-menarik.</li>
+                <li>Magnet pada pintu kulkas atau kompas pelaut.</li>
+              </ul>
+            </div>
+          </div>
+          <button onclick="playMiniDemo('magnet')" class="w-full py-2.5 bg-red-600 hover:bg-red-700 text-white rounded-xl font-bold text-xs transition active:scale-95 flex items-center justify-center gap-2">
+            <i class="fa-solid fa-play"></i> Tarik Klip Besi
+          </button>
+        </div>
+
+        <!-- Gaya 5: Gaya Pegas -->
+        <div class="bg-white rounded-3xl p-6 shadow-md border-2 border-sky-100 hover:border-amber-400 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center text-2xl shadow-inner">
+                <i class="fa-solid fa-cubes-stacked"></i>
+              </div>
+              <span class="text-xs font-bold px-3 py-1 bg-amber-50 text-amber-600 rounded-full border border-amber-200">Gaya Sentuh</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-800 mb-2">5. Gaya Pegas</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              Gaya lentur yang dihasilkan oleh benda elastis saat diregangkan atau ditekan, kemudian kembali ke bentuk semula.
+            </p>
+            <div class="bg-amber-50 rounded-2xl p-4 border border-amber-100 mb-4">
+              <p class="text-xs font-bold text-amber-800 mb-1 flex items-center gap-1.5">
+                <i class="fa-solid fa-ring text-amber-600"></i> Contoh Nyata:
+              </p>
+              <ul class="text-xs text-slate-700 list-disc list-inside space-y-1">
+                <li>Karet gelang ditarik lalu melenting.</li>
+                <li>Busur panah atau ketapel mainan.</li>
+                <li>Per pada kasur springbed atau pulpen cetik.</li>
+              </ul>
+            </div>
+          </div>
+          <button onclick="playMiniDemo('pegas')" class="w-full py-2.5 bg-amber-600 hover:bg-amber-700 text-white rounded-xl font-bold text-xs transition active:scale-95 flex items-center justify-center gap-2">
+            <i class="fa-solid fa-play"></i> Regangkan Karet Gelang
+          </button>
+        </div>
+
+        <!-- Gaya 6: Gaya Listrik -->
+        <div class="bg-white rounded-3xl p-6 shadow-md border-2 border-sky-100 hover:border-yellow-400 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 bg-yellow-100 text-yellow-600 rounded-2xl flex items-center justify-center text-2xl shadow-inner">
+                <i class="fa-solid fa-bolt"></i>
+              </div>
+              <span class="text-xs font-bold px-3 py-1 bg-yellow-50 text-yellow-600 rounded-full border border-yellow-200">Gaya Tak Sentuh</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-800 mb-2">6. Gaya Listrik</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              Gaya yang ditimbulkan oleh benda yang memiliki muatan listrik (listrik statis maupun dinamis).
+            </p>
+            <div class="bg-yellow-50 rounded-2xl p-4 border border-yellow-100 mb-4">
+              <p class="text-xs font-bold text-yellow-800 mb-1 flex items-center gap-1.5">
+                <i class="fa-solid fa-ruler text-yellow-600"></i> Percobaan Aman:
+              </p>
+              <ul class="text-xs text-slate-700 list-disc list-inside space-y-1">
+                <li>Penggaris plastik digosokkan ke rambut kering.</li>
+                <li>Penggaris bermuatan menarik sobekan kertas kecil.</li>
+                <li>Balon menempel pada dinding setelah digosok kain wol.</li>
+              </ul>
+            </div>
+          </div>
+          <button onclick="playMiniDemo('listrik')" class="w-full py-2.5 bg-yellow-500 hover:bg-yellow-600 text-slate-900 font-bold text-xs transition active:scale-95 flex items-center justify-center gap-2">
+            <i class="fa-solid fa-play"></i> Gosok Penggaris Plastik
+          </button>
+        </div>
+
+        <!-- Gaya 7: Gaya Mesin -->
+        <div class="bg-white rounded-3xl p-6 shadow-md border-2 border-sky-100 hover:border-cyan-400 transition-all duration-300 flex flex-col justify-between md:col-span-2 lg:col-span-3">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+            <div class="md:col-span-2">
+              <div class="flex items-center gap-2 mb-2">
+                <div class="w-10 h-10 bg-cyan-100 text-cyan-600 rounded-xl flex items-center justify-center text-xl">
+                  <i class="fa-solid fa-gears"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-800">7. Gaya Mesin</h3>
+                <span class="text-xs font-bold px-3 py-1 bg-cyan-50 text-cyan-600 rounded-full border border-cyan-200">Gaya Sentuh</span>
+              </div>
+              <p class="text-xs text-slate-600 leading-relaxed mb-3">
+                Gaya yang dihasilkan oleh dorongan kerja mesin berbahan bakar atau motor bertenaga listrik sehingga dapat menggerakkan benda berat secara konstan.
+              </p>
+              <div class="bg-cyan-50 p-3 rounded-2xl border border-cyan-100">
+                <p class="text-xs font-bold text-cyan-800 mb-1">
+                  <i class="fa-solid fa-ship text-cyan-600 mr-1"></i> Kontekstual Singkep Pesisir:
+                </p>
+                <p class="text-xs text-slate-700">
+                  Perahu pompong nelayan Singkep melaju di laut karena baling-baling digerakkan oleh tenaga mesin motor perahu. Di kelas kita, bilah kipas angin berputar mendinginkan ruangan juga karena gaya mesin motor listrik.
+                </p>
+              </div>
+            </div>
+            <div class="flex flex-col items-center justify-center bg-slate-50 p-4 rounded-2xl border border-slate-200">
+              <div id="boatEngineGraphic" class="text-4xl text-cyan-600 transition duration-300 mb-3">
+                <i class="fa-solid fa-ship"></i>
+              </div>
+              <button onclick="playMiniDemo('mesin')" class="w-full py-2.5 bg-cyan-600 hover:bg-cyan-700 text-white rounded-xl font-bold text-xs transition active:scale-95 flex items-center justify-center gap-2">
+                <i class="fa-solid fa-power-off"></i> Hidupkan Mesin Pompong
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="miniDemoModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border-4 border-sky-300 transform scale-95 transition">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
+            <h4 id="demoModalTitle" class="font-bold text-lg text-slate-800">Simulasi Gaya</h4>
+            <button onclick="closeMiniDemo()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 font-bold flex items-center justify-center">
+              ✕
+            </button>
+          </div>
+          <div id="demoCanvasArea" class="h-48 bg-sky-50 rounded-2xl flex items-center justify-center relative overflow-hidden p-4 border border-sky-200">
+            <!-- Dynamic elements will be inserted here -->
+          </div>
+          <p id="demoModalDesc" class="text-xs text-slate-600 my-4 text-center font-medium">Deskripsi aksi...</p>
+          <div class="flex gap-2">
+            <button id="demoActionBtn" class="flex-1 py-2.5 bg-coastal-500 hover:bg-coastal-600 text-white rounded-xl font-bold text-xs shadow active:scale-95">
+              Coba Ulang
+            </button>
+            <button onclick="closeMiniDemo()" class="px-4 py-2.5 bg-slate-200 hover:bg-slate-300 text-slate-700 rounded-xl font-bold text-xs">
+              Tutup
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="section-proses" class="tab-content hidden transition-all duration-300">
+      <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-md border border-emerald-100 mb-6">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 pb-5 mb-6">
+          <div>
+            <span class="px-3 py-1 bg-emerald-100 text-emerald-700 font-bold text-xs rounded-full uppercase">
+              Siklus Keterampilan Proses Sains
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-800 mt-2">
+              Laboratorium Penyelidikan Cilik
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-600">
+              Ikuti 5 langkah ilmiah penyelidik cilik untuk membuktikan pengaruh gaya gesek permukaan terhadap gerak mobil mainan!
+            </p>
+          </div>
+
+          <!-- Step Indicators -->
+          <div class="flex items-center gap-1.5 overflow-x-auto py-1">
+            <span class="px-2.5 py-1 bg-coastal-500 text-white rounded-lg font-bold text-xs">1. Amati</span>
+            <span class="text-slate-300">➜</span>
+            <span class="px-2.5 py-1 bg-coastal-500 text-white rounded-lg font-bold text-xs">2. Prediksi</span>
+            <span class="text-slate-300">➜</span>
+            <span class="px-2.5 py-1 bg-coastal-500 text-white rounded-lg font-bold text-xs">3. Selidiki</span>
+            <span class="text-slate-300">➜</span>
+            <span class="px-2.5 py-1 bg-coastal-500 text-white rounded-lg font-bold text-xs">4. Data</span>
+            <span class="text-slate-300">➜</span>
+            <span class="px-2.5 py-1 bg-coastal-500 text-white rounded-lg font-bold text-xs">5. Simpulkan</span>
+          </div>
+        </div>
+
+        <!-- TAHAP 1: MENGAMATI -->
+        <div class="mb-10 bg-sky-50/70 rounded-3xl p-6 border border-sky-200">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-8 h-8 rounded-full bg-coastal-600 text-white font-bold flex items-center justify-center text-sm shadow">1</div>
+            <h3 class="text-lg font-extrabold text-slate-800">Tahap 1: Mengamati (Observation)</h3>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-700 mb-4">
+            Amati ketiga situasi nyata di bawah ini. Ketika mobil melaju di lantai licin ubin sekolah dibandingkan di atas karpet kelas atau di atas jalan berpasir pesisir Singkep:
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+            <div class="bg-white p-4 rounded-2xl border border-sky-200 shadow-sm text-center">
+              <div class="text-3xl text-sky-500 mb-2"><i class="fa-solid fa-table-cells"></i></div>
+              <h4 class="font-bold text-xs sm:text-sm text-slate-800">Lantai Ubin / Kaca</h4>
+              <p class="text-xs text-slate-500 mt-1">Permukaan halus, mobil meluncur sangat cepat dan jauh.</p>
+            </div>
+            <div class="bg-white p-4 rounded-2xl border border-sky-200 shadow-sm text-center">
+              <div class="text-3xl text-amber-500 mb-2"><i class="fa-solid fa-rug"></i></div>
+              <h4 class="font-bold text-xs sm:text-sm text-slate-800">Kain / Karpet</h4>
+              <p class="text-xs text-slate-500 mt-1">Permukaan agak berserat, mobil sedikit tertahan.</p>
+            </div>
+            <div class="bg-white p-4 rounded-2xl border border-sky-200 shadow-sm text-center">
+              <div class="text-3xl text-orange-500 mb-2"><i class="fa-solid fa-mountain-sun"></i></div>
+              <h4 class="font-bold text-xs sm:text-sm text-slate-800">Pasir Pantai Pesisir</h4>
+              <p class="text-xs text-slate-500 mt-1">Permukaan sangat kasar berbutir, mobil cepat berhenti.</p>
+            </div>
+          </div>
+
+          <div class="bg-white p-4 rounded-2xl border-l-4 border-amber-400 text-xs sm:text-sm text-slate-700 font-medium flex items-center gap-2">
+            <i class="fa-solid fa-circle-question text-amber-500 text-xl"></i>
+            <span><strong>Pertanyaan Pemantik:</strong> "Mengapa jarak tempuh mobil mainan berbeda-beda ketika meluncur di atas lantai ubin, kain, dan pasir pantai?"</span>
+          </div>
+        </div>
+
+        <!-- TAHAP 2: MEMPERTANYAKAN & MEMPREDIKSI -->
+        <div class="mb-10 bg-amber-50/70 rounded-3xl p-6 border border-amber-200">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-8 h-8 rounded-full bg-amber-500 text-white font-bold flex items-center justify-center text-sm shadow">2</div>
+            <h3 class="text-lg font-extrabold text-slate-800">Tahap 2: Mempertanyakan dan Memprediksi (Hypothesis)</h3>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-700 mb-4">
+            Sebagai peneliti sains cilik, mari buat pertanyaan penyelidikan dan prediksi (dugaan sementaramu) sebelum kita melakukan percobaan!
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">
+                <i class="fa-solid fa-pen-fancy text-amber-600"></i> Pertanyaan Penyelidikan Murid:
+              </label>
+              <input type="text" id="studentQuestion" value="Apakah jenis permukaan lintasan memengaruhi jarak tempuh gerak mobil mainan?" class="w-full text-xs sm:text-sm p-3 rounded-xl border border-amber-300 bg-white focus:ring-2 focus:ring-amber-400 outline-none" placeholder="Tuliskan pertanyaanmu...">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">
+                <i class="fa-solid fa-wand-magic-sparkles text-amber-600"></i> Prediksi / Hipotesis Murid:
+              </label>
+              <select id="studentPrediction" class="w-full text-xs sm:text-sm p-3 rounded-xl border border-amber-300 bg-white focus:ring-2 focus:ring-amber-400 outline-none">
+                <option value="licin-paling-jauh">Saya menduga: Mobil akan meluncur paling JAUH di permukaan yang LICIN/HALUS karena gaya geseknya kecil.</option>
+                <option value="kasar-paling-jauh">Saya menduga: Mobil akan meluncur paling JAUH di permukaan yang KASAR karena ada dorongan.</option>
+                <option value="semua-sama">Saya menduga: Semua permukaan akan menghasilkan jarak yang persis SAMA.</option>
+              </select>
+            </div>
+          </div>
+          <div class="mt-3 flex items-center justify-between flex-wrap gap-2">
+            <span class="text-xs text-amber-800 font-semibold italic">
+              💡 Ingat prinsip uji adil: Berat mobil dan dorongan awal harus dijaga sama persis!
+            </span>
+            <button onclick="savePredictionToast()" class="px-4 py-2 bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold rounded-xl text-xs shadow active:scale-95 transition">
+              Simpan Prediksi Saya ✓
+            </button>
+          </div>
+        </div>
+
+        <!-- TAHAP 3: MERENCANAKAN DAN MELAKUKAN PENYELIDIKAN -->
+        <div class="mb-10 bg-emerald-50/70 rounded-3xl p-6 border border-emerald-200">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-8 h-8 rounded-full bg-emerald-600 text-white font-bold flex items-center justify-center text-sm shadow">3</div>
+            <h3 class="text-lg font-extrabold text-slate-800">Tahap 3: Merencanakan & Melakukan Penyelidikan (Virtual Experiment)</h3>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-700 mb-4">
+            Lakukan percobaan virtual mobil mainan di 3 jenis lintasan berbeda. Tekan tombol <strong>"Luncurkan Mobil!"</strong> sebanyak <strong>3 kali percobaan</strong> untuk tiap permukaan agar data adil dan akurat!
+          </p>
+
+          <!-- Virtual Track Simulator -->
+          <div class="bg-white rounded-2xl p-4 sm:p-6 border border-emerald-200 shadow-sm mb-6">
+            <!-- Track Header Info -->
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+              <div class="flex items-center gap-2">
+                <label class="text-xs font-bold text-slate-700">Pilih Permukaan Lintasan:</label>
+                <select id="surfaceSelect" onchange="updateTrackSurface()" class="text-xs sm:text-sm p-2 rounded-xl border border-slate-300 font-bold bg-sky-50 text-coastal-700 outline-none">
+                  <option value="licin">1. Lantai Ubin / Kaca (Halus)</option>
+                  <option value="kain">2. Permukaan Kain / Karpet (Sedang)</option>
+                  <option value="pasir">3. Permukaan Pasir Pantai (Kasar)</option>
+                </select>
+              </div>
+
+              <!-- Push Force Control -->
+              <div class="flex items-center gap-2">
+                <label class="text-xs font-bold text-slate-700">Gaya Dorong Otot:</label>
+                <span class="px-2.5 py-1 bg-amber-100 text-amber-800 rounded-lg font-bold text-xs">Konstan (5 Newton)</span>
+                <span class="text-xs text-slate-400" title="Variabel kontrol agar adil">(Uji Adil)</span>
+              </div>
+            </div>
+
+            <!-- Visual Track Canvas/Track Area -->
+            <div class="relative w-full h-36 rounded-2xl border-2 border-slate-300 overflow-hidden mb-4 shadow-inner" id="trackBox">
+              <!-- Ruler Overlay at Top -->
+              <div class="absolute top-0 left-0 right-0 h-6 bg-amber-100/90 border-b border-amber-300 flex justify-between px-3 text-[10px] font-mono text-amber-900 font-bold z-10 select-none">
+                <span>0 cm</span>
+                <span>25 cm</span>
+                <span>50 cm</span>
+                <span>75 cm</span>
+                <span>100 cm</span>
+                <span>125 cm</span>
+                <span>150 cm</span>
+              </div>
+
+              <!-- Surface Background Texture -->
+              <div id="trackSurfaceVisual" class="w-full h-full pt-6 flex items-end pb-3 px-2 bg-gradient-to-r from-sky-100 via-sky-50 to-blue-100 transition-all duration-300">
+                <!-- Track Start Line -->
+                <div class="absolute left-6 top-6 bottom-0 w-1 bg-red-400 border-r border-red-500"></div>
+
+                <!-- Moving Car Element -->
+                <div id="toyCar" style="left: 20px;" class="absolute bottom-3 text-3xl sm:text-4xl transition-all duration-1000 ease-out z-20">
+                  🚙
+                </div>
+              </div>
+            </div>
+
+            <!-- Experiment Action Bar -->
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div class="flex items-center gap-2">
+                <button id="launchCarBtn" onclick="runExperimentTrial()" class="px-5 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold rounded-xl text-xs sm:text-sm shadow-md active:scale-95 transition flex items-center gap-2">
+                  <i class="fa-solid fa-flag-checkered"></i> Luncurkan Mobil!
+                </button>
+                <button onclick="resetTrackPosition()" class="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-xs active:scale-95 transition">
+                  <i class="fa-solid fa-rotate-left"></i> Atur Ulang Posisi
+                </button>
+              </div>
+
+              <div id="trialNotification" class="text-xs font-bold text-slate-700 bg-sky-100 px-3 py-1.5 rounded-xl border border-sky-200">
+                Siap menguji lintasan. Tekan Luncurkan Mobil!
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAHAP 4: MEMPROSES DAN MENGANALISIS DATA -->
+        <div class="mb-10 bg-purple-50/70 rounded-3xl p-6 border border-purple-200">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-8 h-8 rounded-full bg-purple-600 text-white font-bold flex items-center justify-center text-sm shadow">4</div>
+            <h3 class="text-lg font-extrabold text-slate-800">Tahap 4: Memproses dan Menganalisis Data (Data Analysis)</h3>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-700 mb-4">
+            Tabel di bawah mencatat data 3 kali uji coba secara otomatis. Perhatikan rata-rata jarak tempuh dan grafik batangnya!
+          </p>
+
+          <!-- Table of Trials -->
+          <div class="overflow-x-auto rounded-2xl border border-purple-200 bg-white mb-6 shadow-sm">
+            <table class="w-full text-left text-xs sm:text-sm">
+              <thead class="bg-purple-600 text-white font-bold">
+                <tr>
+                  <th class="p-3">No</th>
+                  <th class="p-3">Jenis Permukaan</th>
+                  <th class="p-3">Uji 1 (cm)</th>
+                  <th class="p-3">Uji 2 (cm)</th>
+                  <th class="p-3">Uji 3 (cm)</th>
+                  <th class="p-3 bg-purple-700">Rata-rata (cm)</th>
+                  <th class="p-3">Kondisi Gaya Gesek</th>
+                </tr>
+              </thead>
+              <tbody id="trialTableBody" class="divide-y divide-purple-100 font-medium text-slate-700">
+                <tr id="row-licin">
+                  <td class="p-3 font-bold">1</td>
+                  <td class="p-3 font-bold text-coastal-600">Lantai Ubin / Kaca (Halus)</td>
+                  <td class="p-3" id="licin-t1">-</td>
+                  <td class="p-3" id="licin-t2">-</td>
+                  <td class="p-3" id="licin-t3">-</td>
+                  <td class="p-3 font-extrabold text-purple-700 bg-purple-50" id="licin-avg">-</td>
+                  <td class="p-3"><span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 rounded-md text-xs font-bold">Paling Kecil</span></td>
+                </tr>
+                <tr id="row-kain">
+                  <td class="p-3 font-bold">2</td>
+                  <td class="p-3 font-bold text-amber-600">Kain / Karpet (Sedang)</td>
+                  <td class="p-3" id="kain-t1">-</td>
+                  <td class="p-3" id="kain-t2">-</td>
+                  <td class="p-3" id="kain-t3">-</td>
+                  <td class="p-3 font-extrabold text-purple-700 bg-purple-50" id="kain-avg">-</td>
+                  <td class="p-3"><span class="px-2 py-0.5 bg-amber-100 text-amber-700 rounded-md text-xs font-bold">Sedang</span></td>
+                </tr>
+                <tr id="row-pasir">
+                  <td class="p-3 font-bold">3</td>
+                  <td class="p-3 font-bold text-orange-600">Pasir Pantai (Kasar)</td>
+                  <td class="p-3" id="pasir-t1">-</td>
+                  <td class="p-3" id="pasir-t2">-</td>
+                  <td class="p-3" id="pasir-t3">-</td>
+                  <td class="p-3 font-extrabold text-purple-700 bg-purple-50" id="pasir-avg">-</td>
+                  <td class="p-3"><span class="px-2 py-0.5 bg-red-100 text-red-700 rounded-md text-xs font-bold">Paling Besar</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Interactive Bar Chart -->
+          <div class="bg-white p-5 rounded-2xl border border-purple-200 shadow-sm">
+            <h4 class="font-bold text-slate-800 text-xs sm:text-sm mb-3 flex items-center gap-2">
+              <i class="fa-solid fa-chart-column text-purple-600"></i>
+              Grafik Batang: Perbandingan Rata-rata Jarak Tempuh (cm)
+            </h4>
+
+            <div class="space-y-4 pt-2">
+              <div>
+                <div class="flex justify-between text-xs font-bold text-slate-700 mb-1">
+                  <span>Lantai Halus (Ubin / Kaca)</span>
+                  <span id="labelBarLicin">0 cm</span>
+                </div>
+                <div class="w-full bg-slate-100 h-6 rounded-full overflow-hidden p-0.5">
+                  <div id="barLicin" class="bg-gradient-to-r from-sky-400 to-coastal-600 h-full rounded-full transition-all duration-700 text-white text-[11px] font-bold flex items-center justify-end pr-2" style="width: 0%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-xs font-bold text-slate-700 mb-1">
+                  <span>Permukaan Sedang (Kain / Karpet)</span>
+                  <span id="labelBarKain">0 cm</span>
+                </div>
+                <div class="w-full bg-slate-100 h-6 rounded-full overflow-hidden p-0.5">
+                  <div id="barKain" class="bg-gradient-to-r from-amber-400 to-amber-600 h-full rounded-full transition-all duration-700 text-white text-[11px] font-bold flex items-center justify-end pr-2" style="width: 0%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-xs font-bold text-slate-700 mb-1">
+                  <span>Permukaan Kasar (Pasir Pantai Pesisir)</span>
+                  <span id="labelBarPasir">0 cm</span>
+                </div>
+                <div class="w-full bg-slate-100 h-6 rounded-full overflow-hidden p-0.5">
+                  <div id="barPasir" class="bg-gradient-to-r from-red-400 to-orange-600 h-full rounded-full transition-all duration-700 text-white text-[11px] font-bold flex items-center justify-end pr-2" style="width: 0%"></div>
+                </div>
+              </div>
+            </div>
+            <p class="text-[11px] text-slate-500 mt-4 italic text-right">
+              *Grafik akan memanjang seiring pengumpulan data uji coba mobil di atas.
+            </p>
+          </div>
+        </div>
+
+        <!-- TAHAP 5: MENYIMPULKAN DAN MENGOMUNIKASIKAN -->
+        <div class="bg-coastal-50/70 rounded-3xl p-6 border border-coastal-200">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-8 h-8 rounded-full bg-coastal-600 text-white font-bold flex items-center justify-center text-sm shadow">5</div>
+            <h3 class="text-lg font-extrabold text-slate-800">Tahap 5: Menyimpulkan & Mengomunikasikan (Conclusion)</h3>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-700 mb-4">
+            Berdasarkan bukti data pengamatan di atas, pilihlah kesimpulan ilmiah yang paling tepat untuk membuktikan hipotesismu:
+          </p>
+
+          <div class="space-y-3 mb-4">
+            <label class="flex items-start gap-3 p-3 bg-white rounded-xl border border-sky-200 cursor-pointer hover:bg-sky-50 transition">
+              <input type="radio" name="conclusionRadio" value="correct" class="mt-1 text-coastal-600 focus:ring-coastal-400">
+              <span class="text-xs sm:text-sm text-slate-800 font-semibold">
+                <strong>Kesimpulan Tepat:</strong> Semakin kasar permukaan benda, semakin <strong>besar gaya geseknya</strong>, sehingga benda melaju lebih lambat dan menempuh jarak yang lebih <strong>pendek</strong>. Sebaliknya, pada lantai halus gaya geseknya kecil sehingga mobil meluncur paling jauh.
+              </span>
+            </label>
+            <label class="flex items-start gap-3 p-3 bg-white rounded-xl border border-sky-200 cursor-pointer hover:bg-sky-50 transition">
+              <input type="radio" name="conclusionRadio" value="wrong1" class="mt-1 text-coastal-600 focus:ring-coastal-400">
+              <span class="text-xs sm:text-sm text-slate-800 font-medium">
+                Semua permukaan menghasilkan gaya gesek yang sama, sehingga tidak berpengaruh terhadap jarak tempuh mobil mainan.
+              </span>
+            </label>
+            <label class="flex items-start gap-3 p-3 bg-white rounded-xl border border-sky-200 cursor-pointer hover:bg-sky-50 transition">
+              <input type="radio" name="conclusionRadio" value="wrong2" class="mt-1 text-coastal-600 focus:ring-coastal-400">
+              <span class="text-xs sm:text-sm text-slate-800 font-medium">
+                Permukaan pasir pantai membuat mobil meluncur paling jauh karena butiran pasir membantu mobil terbang lebih kencang.
+              </span>
+            </label>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+            <button onclick="checkConclusion()" class="px-5 py-2.5 bg-coastal-600 hover:bg-coastal-700 text-white rounded-xl font-bold text-xs sm:text-sm shadow active:scale-95 transition flex items-center gap-2">
+              <i class="fa-solid fa-check-double"></i> Periksa Kesimpulan Saya
+            </button>
+            <button onclick="switchTab('lkpd')" class="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-xl font-bold text-xs shadow active:scale-95 transition flex items-center gap-2">
+              <i class="fa-solid fa-print"></i> Salin ke Laporan LKPD Cikgu Dessy ➜
+            </button>
+          </div>
+          <div id="conclusionResultBox" class="mt-4 hidden p-4 rounded-2xl text-xs sm:text-sm font-bold"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="section-kuis" class="tab-content hidden transition-all duration-300">
+      <div class="max-w-3xl mx-auto">
+        <div class="bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500 rounded-3xl p-6 text-white shadow-xl mb-6 flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <span class="px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-bold uppercase tracking-wider">
+              Tantangan Peneliti Cilik
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold mt-1">Kuis Detektif Gaya</h2>
+            <p class="text-xs sm:text-sm text-amber-100">Bantu Cikgu Dessy memecahkan 5 studi kasus gaya di Singkep Pesisir!</p>
+          </div>
+          <div class="text-center bg-white/20 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/30">
+            <div class="text-xs uppercase font-bold text-amber-200">Skor Kamu</div>
+            <div id="quizScoreDisplay" class="text-3xl font-black">0 / 100</div>
+          </div>
+        </div>
+
+        <!-- Quiz Container -->
+        <div id="quizCard" class="bg-white rounded-3xl p-6 sm:p-8 shadow-md border border-slate-200">
+          <!-- Quiz Progress Indicator -->
+          <div class="flex items-center justify-between text-xs font-bold text-slate-500 mb-4">
+            <span id="quizQuestionNumber">Pertanyaan 1 dari 5</span>
+            <span id="quizBadgeStatus" class="px-3 py-1 bg-amber-100 text-amber-800 rounded-full font-bold">⭐ Bintang 0</span>
+          </div>
+
+          <div class="w-full bg-slate-100 h-2.5 rounded-full mb-6 overflow-hidden">
+            <div id="quizProgressBar" class="bg-amber-500 h-full transition-all duration-300" style="width: 20%;"></div>
+          </div>
+
+          <!-- Question Content -->
+          <div id="quizContentArea">
+            <h3 id="quizQuestionText" class="text-base sm:text-lg font-bold text-slate-800 mb-4 leading-snug">
+              Pertanyaan sedang dimuat...
+            </h3>
+            <div id="quizOptionsList" class="space-y-3 mb-6">
+              <!-- Options rendered dynamically -->
+            </div>
+          </div>
+
+          <div id="quizFeedbackBox" class="p-4 rounded-2xl mb-4 hidden font-medium text-xs sm:text-sm"></div>
+
+          <div class="flex justify-end gap-2">
+            <button id="quizNextBtn" onclick="nextQuizQuestion()" class="hidden px-6 py-2.5 bg-coastal-600 hover:bg-coastal-700 text-white rounded-xl font-bold text-xs sm:text-sm shadow active:scale-95 transition">
+              Lanjut Soal Berikutnya ➜
+            </button>
+          </div>
+        </div>
+
+        <!-- Completion Modal/Box -->
+        <div id="quizCompletedBox" class="bg-white rounded-3xl p-8 shadow-xl border-4 border-amber-300 text-center hidden">
+          <div class="w-20 h-20 mx-auto bg-amber-100 text-amber-500 rounded-3xl flex items-center justify-center text-4xl mb-4 animate-bounce">
+            🏆
+          </div>
+          <h3 class="text-2xl font-black text-slate-800 mb-1">Hebat Sekali! Kamu Peneliti Cerdas!</h3>
+          <p class="text-sm text-slate-600 mb-4">Tantangan Kuis Detektif Gaya SDN 004 Singkep Pesisir selesai.</p>
+          <div class="inline-block px-6 py-3 bg-amber-50 rounded-2xl border border-amber-200 mb-6">
+            <span class="text-xs uppercase font-bold text-amber-800 block">Nilai Akhir:</span>
+            <span id="finalQuizScore" class="text-4xl font-black text-amber-600">100</span>
+          </div>
+          <div class="flex flex-wrap justify-center gap-3">
+            <button onclick="restartQuiz()" class="px-5 py-2.5 bg-slate-200 hover:bg-slate-300 text-slate-800 rounded-xl font-bold text-xs sm:text-sm transition">
+              Ulangi Kuis ↺
+            </button>
+            <button onclick="switchTab('lkpd')" class="px-5 py-2.5 bg-purple-600 hover:bg-purple-700 text-white rounded-xl font-bold text-xs sm:text-sm shadow transition">
+              Cetak Sertifikat & LKPD ➜
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="section-lkpd" class="tab-content hidden transition-all duration-300">
+      <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-lg border-2 border-purple-200 max-w-4xl mx-auto" id="printableLKPD">
+        <!-- LKPD Header (Formal & Friendly) -->
+        <div class="border-b-2 border-slate-300 pb-5 mb-6 text-center relative">
+          <div class="flex items-center justify-between gap-4 mb-2">
+            <div class="text-left">
+              <span class="text-xs font-bold uppercase tracking-wider text-purple-700 block">LEMBAR KERJA PESERTA DIDIK (LKPD)</span>
+              <h2 class="text-xl sm:text-2xl font-black text-slate-900 leading-tight">
+                Penyelidikan Pengaruh Gaya di Sekitar Kita
+              </h2>
+            </div>
+            <div class="text-right">
+              <span class="text-xs font-bold text-slate-600 block">IPAS KELAS IV SD</span>
+              <span class="text-xs text-slate-500 block">SDN 004 Singkep Pesisir</span>
+            </div>
+          </div>
+          <div class="text-xs text-slate-500 flex items-center justify-between border-t border-dashed border-slate-200 pt-2">
+            <span>Guru Pengampu: <strong>Cikgu Dessy</strong></span>
+            <span class="text-coastal-600 font-bold">@cikgudessy</span>
+          </div>
+        </div>
+
+        <!-- Student Identity Form (Editable) -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-purple-50/60 p-4 rounded-2xl border border-purple-100 mb-6">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Nama Lengkap Murid:</label>
+            <input type="text" id="lkpdStudentName" value="" placeholder="Ketik nama murid..." class="w-full text-xs sm:text-sm p-2 rounded-xl border border-purple-200 bg-white font-bold text-slate-800 outline-none focus:ring-2 focus:ring-purple-400">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Kelas / Semester:</label>
+            <input type="text" id="lkpdStudentClass" value="IV (Empat) / Genap" class="w-full text-xs sm:text-sm p-2 rounded-xl border border-purple-200 bg-white text-slate-800 outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Tanggal Percobaan:</label>
+            <input type="text" id="lkpdDate" class="w-full text-xs sm:text-sm p-2 rounded-xl border border-purple-200 bg-white text-slate-800 outline-none">
+          </div>
+        </div>
+
+        <!-- LKPD Content Section -->
+        <div class="space-y-6 text-xs sm:text-sm text-slate-800">
+          <div>
+            <h4 class="font-extrabold text-purple-900 mb-1 text-sm sm:text-base flex items-center gap-2">
+              <i class="fa-solid fa-bullseye text-purple-600"></i> A. Tujuan Percobaan
+            </h4>
+            <p class="text-slate-600 bg-slate-50 p-3 rounded-xl border border-slate-200">
+              Menyelidiki pengaruh jenis permukaan terhadap gaya gesek dan jarak tempuh gerak benda dengan metode pengujian yang adil.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="font-extrabold text-purple-900 mb-1 text-sm sm:text-base flex items-center gap-2">
+              <i class="fa-solid fa-lightbulb text-amber-500"></i> B. Pertanyaan & Prediksi Murid
+            </h4>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+              <p><strong>Pertanyaan Penyelidikan:</strong> <span id="lkpdQuestionSummary" class="text-coastal-700">Apakah jenis permukaan memengaruhi jarak tempuh gerak mobil?</span></p>
+              <p><strong>Prediksi Awal:</strong> <span id="lkpdPredictionSummary" class="text-coastal-700">Mobil meluncur paling jauh pada lintasan licin karena gaya geseknya kecil.</span></p>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="font-extrabold text-purple-900 mb-2 text-sm sm:text-base flex items-center gap-2">
+              <i class="fa-solid fa-table text-coastal-600"></i> C. Tabel Bukti Hasil Percobaan (3 Kali Uji Coba)
+            </h4>
+            <div class="overflow-x-auto rounded-xl border border-slate-200">
+              <table class="w-full text-xs text-left">
+                <thead class="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
+                  <tr>
+                    <th class="p-2.5">No</th>
+                    <th class="p-2.5">Jenis Lintasan</th>
+                    <th class="p-2.5">Uji 1</th>
+                    <th class="p-2.5">Uji 2</th>
+                    <th class="p-2.5">Uji 3</th>
+                    <th class="p-2.5 font-bold text-purple-700">Rata-rata</th>
+                    <th class="p-2.5">Pengamatan Gaya Gesek</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-200">
+                  <tr>
+                    <td class="p-2.5">1</td>
+                    <td class="p-2.5 font-semibold">Lantai Halus (Ubin/Kaca)</td>
+                    <td class="p-2.5" id="lkpd-licin-1">-</td>
+                    <td class="p-2.5" id="lkpd-licin-2">-</td>
+                    <td class="p-2.5" id="lkpd-licin-3">-</td>
+                    <td class="p-2.5 font-bold text-purple-700" id="lkpd-licin-avg">-</td>
+                    <td class="p-2.5">Gaya gesek sangat kecil, mobil meluncur terjauh</td>
+                  </tr>
+                  <tr>
+                    <td class="p-2.5">2</td>
+                    <td class="p-2.5 font-semibold">Kain / Karpet</td>
+                    <td class="p-2.5" id="lkpd-kain-1">-</td>
+                    <td class="p-2.5" id="lkpd-kain-2">-</td>
+                    <td class="p-2.5" id="lkpd-kain-3">-</td>
+                    <td class="p-2.5 font-bold text-purple-700" id="lkpd-kain-avg">-</td>
+                    <td class="p-2.5">Gaya gesek sedang, jarak tempuh menengah</td>
+                  </tr>
+                  <tr>
+                    <td class="p-2.5">3</td>
+                    <td class="p-2.5 font-semibold">Pasir Pantai Pesisir</td>
+                    <td class="p-2.5" id="lkpd-pasir-1">-</td>
+                    <td class="p-2.5" id="lkpd-pasir-2">-</td>
+                    <td class="p-2.5" id="lkpd-pasir-3">-</td>
+                    <td class="p-2.5 font-bold text-purple-700" id="lkpd-pasir-avg">-</td>
+                    <td class="p-2.5">Gaya gesek sangat besar, mobil cepat berhenti</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="font-extrabold text-purple-900 mb-1 text-sm sm:text-base flex items-center gap-2">
+              <i class="fa-solid fa-feather text-emerald-600"></i> D. Kesimpulan dan Refleksi Murid
+            </h4>
+            <textarea id="lkpdReflectionText" rows="3" class="w-full text-xs sm:text-sm p-3 rounded-xl border border-slate-300 bg-white outline-none focus:ring-2 focus:ring-purple-400" placeholder="Tuliskan apa yang kamu pelajari hari ini..."></textarea>
+          </div>
+
+          <!-- Signature Section for Teacher & Student -->
+          <div class="grid grid-cols-2 pt-6 border-t border-slate-200 text-center text-xs">
+            <div>
+              <p class="text-slate-500 mb-12">Mengetahui,<br>Guru Kelas IV SD</p>
+              <p class="font-bold text-slate-800 underline">Cikgu Dessy</p>
+              <p class="text-slate-500">SDN 004 Singkep Pesisir</p>
+            </div>
+            <div>
+              <p class="text-slate-500 mb-12">Singkep Pesisir, <span id="signatureDate"></span><br>Peneliti Cilik,</p>
+              <p id="studentSignatureName" class="font-bold text-slate-800 underline">[ Nama Murid ]</p>
+              <p class="text-slate-500">Murid Kelas IV</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Buttons (No Print) -->
+        <div class="mt-8 pt-6 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3 no-print">
+          <div class="flex gap-2">
+            <button onclick="printLKPD()" class="px-5 py-2.5 bg-coastal-600 hover:bg-coastal-700 text-white font-bold rounded-xl text-xs sm:text-sm shadow active:scale-95 transition flex items-center gap-2">
+              <i class="fa-solid fa-print"></i> Cetak / Simpan PDF
+            </button>
+            <button onclick="copyLKPDToClipboard()" class="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-xs sm:text-sm active:scale-95 transition flex items-center gap-2">
+              <i class="fa-solid fa-copy"></i> Salin Rangkuman Teks
+            </button>
+          </div>
+          <button onclick="simulateSendToSpreadsheet()" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs sm:text-sm shadow active:scale-95 transition flex items-center gap-2">
+            <i class="fa-solid fa-cloud-arrow-up"></i> Simpan ke Google Sheet Cikgu Dessy
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-sky-100 py-6 mt-12 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+        <span class="font-semibold text-slate-700">Media Pembelajaran IPAS Berbasis Keterampilan Proses Sains</span>
+      </div>
+      <div>
+        <span>Dibuat dengan dedikasi oleh <strong>Cikgu Dessy</strong> • SD Negeri 004 Singkep Pesisir</span>
+      </div>
+      <div class="text-coastal-600 font-bold tracking-wider">
+        Watermark Resmi: <span class="bg-sky-100 px-2 py-0.5 rounded-md">@cikgudessy</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Notification Toast Modal -->
+  <div id="toastMessage" class="fixed bottom-5 right-5 bg-slate-900/90 text-white px-5 py-3 rounded-2xl shadow-2xl text-xs sm:text-sm font-semibold flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300 z-50 pointer-events-none">
+    <i id="toastIcon" class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
+    <span id="toastText">Pesan pemberitahuan...</span>
+  </div>
+
+  <script>
+    /* =========================================================
+       AUDIO SYNTHESIZER (WEB AUDIO API) - Self-contained sounds
+       ========================================================= */
+    let audioCtx = null;
+    let isSoundOn = true;
+
+    function getAudioContext() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    function toggleAudio() {
+      isSoundOn = !isSoundOn;
+      const soundIcon = document.getElementById('soundIcon');
+      const soundBtn = document.getElementById('soundToggleBtn');
+      if (isSoundOn) {
+        soundIcon.className = "fa-solid fa-volume-high text-amber-600";
+        soundBtn.querySelector('span').textContent = "Efek Suara: ON";
+        showToast("Suara interaktif diaktifkan! 🔊");
+        playTone('success');
+      } else {
+        soundIcon.className = "fa-solid fa-volume-xmark text-slate-400";
+        soundBtn.querySelector('span').textContent = "Efek Suara: OFF";
+        showToast("Suara dinonaktifkan 🔇");
+      }
+    }
+
+    function playTone(type) {
+      if (!isSoundOn) return;
+      try {
+        const ctx = getAudioContext();
+        const now = ctx.currentTime;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        if (type === 'click') {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(440, now);
+          osc.frequency.exponentialRampToValueAtTime(880, now + 0.08);
+          gain.gain.setValueAtTime(0.15, now);
+          gain.gain.exponentialRampToValueAtTime(0.01, now + 0.08);
+          osc.start(now);
+          osc.stop(now + 0.08);
+        } else if (type === 'car') {
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(150, now);
+          osc.frequency.linearRampToValueAtTime(320, now + 0.3);
+          osc.frequency.linearRampToValueAtTime(80, now + 0.9);
+          gain.gain.setValueAtTime(0.2, now);
+          gain.gain.exponentialRampToValueAtTime(0.01, now + 0.9);
+          osc.start(now);
+          osc.stop(now + 0.9);
+        } else if (type === 'success') {
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(523.25, now); // C5
+          osc.frequency.setValueAtTime(659.25, now + 0.1); // E5
+          osc.frequency.setValueAtTime(783.99, now + 0.2); // G5
+          gain.gain.setValueAtTime(0.2, now);
+          gain.gain.exponentialRampToValueAtTime(0.01, now + 0.35);
+          osc.start(now);
+          osc.stop(now + 0.35);
+        } else if (type === 'wrong') {
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(220, now);
+          osc.frequency.linearRampToValueAtTime(110, now + 0.25);
+          gain.gain.setValueAtTime(0.2, now);
+          gain.gain.exponentialRampToValueAtTime(0.01, now + 0.25);
+          osc.start(now);
+          osc.stop(now + 0.25);
+        }
+      } catch (e) {
+        console.warn("Audio playback not permitted yet:", e);
+      }
+    }
+
+    function switchTab(tabId) {
+      playTone('click');
+      const tabs = ['beranda', 'materi', 'proses', 'kuis', 'lkpd'];
+      tabs.forEach(t => {
+        const section = document.getElementById(`section-${t}`);
+        const navBtn = document.getElementById(`nav-${t}`);
+        if (section) section.classList.add('hidden');
+        if (navBtn) {
+          navBtn.classList.remove('bg-coastal-500', 'text-white', 'shadow-md');
+          navBtn.classList.add('bg-white', 'text-slate-700');
+        }
+      });
+
+      const activeSection = document.getElementById(`section-${tabId}`);
+      const activeNav = document.getElementById(`nav-${tabId}`);
+      if (activeSection) activeSection.classList.remove('hidden');
+      if (activeNav) {
+        activeNav.classList.remove('bg-white', 'text-slate-700');
+        activeNav.classList.add('bg-coastal-500', 'text-white', 'shadow-md');
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      syncLKPDData();
+    }
+
+    function showToast(message, isSuccess = true) {
+      const toast = document.getElementById('toastMessage');
+      const toastText = document.getElementById('toastText');
+      const toastIcon = document.getElementById('toastIcon');
+
+      toastText.textContent = message;
+      if (isSuccess) {
+        toastIcon.className = "fa-solid fa-circle-check text-emerald-400 text-lg";
+      } else {
+        toastIcon.className = "fa-solid fa-circle-exclamation text-amber-400 text-lg";
+      }
+
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }, 3000);
+    }
+
+    let currentBoxPos = 0;
+    function simulateForce(type) {
+      playTone('click');
+      const box = document.getElementById('simBox');
+      const feedback = document.getElementById('forceFeedback');
+
+      if (type === 'dorongKiri') {
+        currentBoxPos = Math.max(-120, currentBoxPos - 50);
+        box.style.transform = `translateX(${currentBoxPos}px) rotate(-6deg)`;
+        feedback.innerHTML = `<span class="text-coastal-600 font-bold">Gaya Dorong ke Kiri!</span> Kotak berpindah ke kiri karena gaya otot tanganmu.`;
+      } else if (type === 'dorongKanan') {
+        currentBoxPos = Math.min(120, currentBoxPos + 50);
+        box.style.transform = `translateX(${currentBoxPos}px) rotate(6deg)`;
+        feedback.innerHTML = `<span class="text-emerald-600 font-bold">Gaya Dorong ke Kanan!</span> Kotak bergerak ke arah kanan searah doronganmu.`;
+      } else {
+        currentBoxPos = 0;
+        box.style.transform = `translateX(0px) rotate(0deg)`;
+        feedback.innerHTML = `Kotak kembali ke posisi semula (Gaya seimbang/diam).`;
+      }
+    }
+
+    function playMiniDemo(type) {
+      playTone('click');
+      const modal = document.getElementById('miniDemoModal');
+      const title = document.getElementById('demoModalTitle');
+      const canvasArea = document.getElementById('demoCanvasArea');
+      const desc = document.getElementById('demoModalDesc');
+      const actionBtn = document.getElementById('demoActionBtn');
+
+      modal.classList.remove('hidden');
+
+      if (type === 'otot') {
+        title.innerHTML = '🏋️ Gaya Otot: Mendorong Meja';
+        desc.textContent = 'Saat murid mengerahkan tenaga otot lengan dan kaki, meja berpindah posisi dari tempat asalnya.';
+        canvasArea.innerHTML = `
+          <div class="flex items-center gap-4">
+            <div id="demoChar" class="text-4xl transition duration-500">🏃</div>
+            <div id="demoTable" class="text-4xl transition duration-500">🪑</div>
+          </div>
+        `;
+        actionBtn.onclick = () => {
+          playTone('car');
+          const c = document.getElementById('demoChar');
+          const t = document.getElementById('demoTable');
+          c.style.transform = 'translateX(40px)';
+          t.style.transform = 'translateX(70px)';
+          setTimeout(() => {
+            c.style.transform = 'translateX(0px)';
+            t.style.transform = 'translateX(0px)';
+          }, 1200);
+        };
+      } else if (type === 'gesek') {
+        title.innerHTML = '🛑 Gaya Gesek: Rem Sepeda';
+        desc.textContent = 'Karet rem menekan velg roda, menciptakan gaya gesek yang melawan arah putaran roda hingga sepeda berhenti.';
+        canvasArea.innerHTML = `
+          <div class="text-center">
+            <div id="wheelDemo" class="text-5xl inline-block transition-transform duration-700 animate-spin">⚙️</div>
+            <p class="text-xs font-bold text-slate-600 mt-2">Roda Sedang Berputar Kencang</p>
+          </div>
+        `;
+        actionBtn.onclick = () => {
+          playTone('wrong');
+          const w = document.getElementById('wheelDemo');
+          w.classList.remove('animate-spin');
+          desc.innerHTML = '<strong class="text-emerald-600">Rem Diinjak!</strong> Gaya gesek menghentikan putaran roda!';
+          setTimeout(() => {
+            w.classList.add('animate-spin');
+            desc.textContent = 'Karet rem dilepas, roda kembali berputar.';
+          }, 1500);
+        };
+      } else if (type === 'gravitasi') {
+        title.innerHTML = '🌴 Gaya Gravitasi: Kelapa Jatuh';
+        desc.textContent = 'Gaya tarik gravitasi bumi menarik buah kelapa lurus jatuh ke bawah menuju tanah.';
+        canvasArea.innerHTML = `
+          <div class="relative w-full h-full flex flex-col items-center justify-between">
+            <div id="coconutObj" class="text-4xl transition-all duration-700 transform translate-y-0">🥥</div>
+            <div class="w-full h-2 bg-amber-400 rounded-full"></div>
+          </div>
+        `;
+        actionBtn.onclick = () => {
+          playTone('car');
+          const coc = document.getElementById('coconutObj');
+          coc.style.transform = 'translateY(110px)';
+          setTimeout(() => {
+            playTone('click');
+            desc.innerHTML = '<strong>Bummm!</strong> Kelapa mendarat di tanah Singkep Pesisir karena ditarik gravitasi bumi!';
+          }, 700);
+          setTimeout(() => {
+            coc.style.transform = 'translateY(0px)';
+          }, 1800);
+        };
+      } else if (type === 'magnet') {
+        title.innerHTML = '🧲 Gaya Magnet: Menarik Klip Besi';
+        desc.textContent = 'Magnet memiliki medan magnet tak kasat mata yang menarik benda logam seperti paku dan paper clip.';
+        canvasArea.innerHTML = `
+          <div class="flex items-center justify-between w-4/5">
+            <div class="text-4xl">🧲</div>
+            <div id="paperclipObj" class="text-3xl transition duration-500 transform">📎 📎</div>
+          </div>
+        `;
+        actionBtn.onclick = () => {
+          playTone('success');
+          const pc = document.getElementById('paperclipObj');
+          pc.style.transform = 'translateX(-120px) rotate(-20deg)';
+          desc.textContent = 'Klip besi menempel kuat pada kutub magnet!';
+          setTimeout(() => {
+            pc.style.transform = 'translateX(0px)';
+          }, 1500);
+        };
+      } else if (type === 'pegas') {
+        title.innerHTML = '🎯 Gaya Pegas: Karet Melenting';
+        desc.textContent = 'Karet elastis yang diregangkan memiliki energi potensial pegas. Saat dilepaskan, ia melontarkan benda.';
+        canvasArea.innerHTML = `
+          <div class="flex items-center justify-center">
+            <div id="springBand" class="w-24 h-6 border-4 border-amber-500 rounded-full transition-all duration-300"></div>
+          </div>
+        `;
+        actionBtn.onclick = () => {
+          playTone('click');
+          const sp = document.getElementById('springBand');
+          sp.style.width = '160px';
+          sp.style.borderColor = '#ef4444';
+          setTimeout(() => {
+            playTone('success');
+            sp.style.width = '24px';
+            sp.style.borderColor = '#f59e0b';
+            desc.textContent = 'Lepas! Gaya pegas melontarkan dorongan lenting yang kuat!';
+          }, 500);
+          setTimeout(() => {
+            sp.style.width = '96px';
+          }, 1200);
+        };
+      } else if (type === 'listrik') {
+        title.innerHTML = '⚡ Gaya Listrik Statis: Penggaris & Kertas';
+        desc.textContent = 'Penggaris plastik yang digosok kain/rambut mengumpulkan muatan listrik sehingga menarik potongan kertas kecil.';
+        canvasArea.innerHTML = `
+          <div class="flex flex-col items-center gap-4">
+            <div id="rulerObj" class="text-4xl transition duration-500">📏</div>
+            <div id="paperBits" class="flex gap-2 text-xs transition duration-500">
+              <span class="bg-white p-1 rounded shadow">📄</span>
+              <span class="bg-white p-1 rounded shadow">📄</span>
+              <span class="bg-white p-1 rounded shadow">📄</span>
+            </div>
+          </div>
+        `;
+        actionBtn.onclick = () => {
+          playTone('success');
+          const r = document.getElementById('rulerObj');
+          const pb = document.getElementById('paperBits');
+          r.style.transform = 'translateY(20px)';
+          pb.style.transform = 'translateY(-20px) rotate(15deg)';
+          desc.textContent = 'Potongan kertas terangkat menempel ke penggaris karena gaya listrik statis!';
+          setTimeout(() => {
+            r.style.transform = 'translateY(0)';
+            pb.style.transform = 'translateY(0)';
+          }, 1600);
+        };
+      } else if (type === 'mesin') {
+        title.innerHTML = '🚢 Gaya Mesin: Perahu Pompong Singkep';
+        desc.textContent = 'Bahan bakar menggerakkan piston mesin motor perahu sehingga baling-baling membelah air laut.';
+        canvasArea.innerHTML = `
+          <div class="text-center">
+            <div id="boatInModal" class="text-5xl transition-transform duration-1000">🚢</div>
+            <p class="text-xs text-sky-600 font-bold mt-2">Baling-baling berputar di laut Singkep Pesisir</p>
+          </div>
+        `;
+        actionBtn.onclick = () => {
+          playTone('car');
+          const b = document.getElementById('boatInModal');
+          b.style.transform = 'translateX(60px)';
+          desc.textContent = 'Mesin pompong meraung, perahu melaju melawan arus laut pesisir!';
+          setTimeout(() => {
+            b.style.transform = 'translateX(0px)';
+          }, 1400);
+        };
+      }
+    }
+
+    function closeMiniDemo() {
+      playTone('click');
+      document.getElementById('miniDemoModal').classList.add('hidden');
+    }
+
+    const experimentData = {
+      licin: { trials: [], distances: [135, 142, 138], avg: 0 },
+      kain:  { trials: [], distances: [78, 85, 80], avg: 0 },
+      pasir: { trials: [], distances: [28, 32, 26], avg: 0 }
+    };
+
+    function updateTrackSurface() {
+      const surface = document.getElementById('surfaceSelect').value;
+      const trackVisual = document.getElementById('trackSurfaceVisual');
+      resetTrackPosition();
+
+      if (surface === 'licin') {
+        trackVisual.className = "w-full h-full pt-6 flex items-end pb-3 px-2 bg-gradient-to-r from-sky-100 via-sky-50 to-blue-100 transition-all duration-300";
+      } else if (surface === 'kain') {
+        trackVisual.className = "w-full h-full pt-6 flex items-end pb-3 px-2 bg-gradient-to-r from-amber-100 via-amber-200 to-yellow-100 transition-all duration-300";
+      } else if (surface === 'pasir') {
+        trackVisual.className = "w-full h-full pt-6 flex items-end pb-3 px-2 bg-gradient-to-r from-orange-200 via-amber-300 to-orange-300 transition-all duration-300";
+      }
+      playTone('click');
+    }
+
+    function resetTrackPosition() {
+      const car = document.getElementById('toyCar');
+      car.style.transitionDuration = '0.3s';
+      car.style.left = '20px';
+    }
+
+    function runExperimentTrial() {
+      const surface = document.getElementById('surfaceSelect').value;
+      const currentTrials = experimentData[surface].trials;
+      const notif = document.getElementById('trialNotification');
+      const btn = document.getElementById('launchCarBtn');
+
+      if (currentTrials.length >= 3) {
+        showToast(`Uji coba 3 kali untuk permukaan ini sudah lengkap! Kamu bisa mencoba permukaan lain.`);
+        return;
+      }
+
+      btn.disabled = true;
+      playTone('car');
+
+      const trialIndex = currentTrials.length;
+      const baseDistance = experimentData[surface].distances[trialIndex];
+      // small random variation for real laboratory feel
+      const finalDist = baseDistance + Math.floor(Math.random() * 5 - 2);
+      currentTrials.push(finalDist);
+
+      // Animate car
+      const car = document.getElementById('toyCar');
+      const trackWidth = document.getElementById('trackBox').offsetWidth - 60;
+      // Map 0 - 150cm to track width pixels
+      const pixelLeft = 20 + Math.min(trackWidth, (finalDist / 150) * trackWidth);
+
+      car.style.transitionDuration = '1.2s';
+      car.style.left = `${pixelLeft}px`;
+
+      notif.innerHTML = `<span class="text-coastal-600 font-bold">Mobil sedang meluncur...</span>`;
+
+      setTimeout(() => {
+        playTone('success');
+        btn.disabled = false;
+        notif.innerHTML = `✓ Uji ke-${currentTrials.length} selesai! Jarak tempuh: <strong>${finalDist} cm</strong>`;
+
+        // Update table cells
+        document.getElementById(`${surface}-t${currentTrials.length}`).textContent = `${finalDist} cm`;
+
+        // If completed 3 trials, calculate average
+        if (currentTrials.length === 3) {
+          const sum = currentTrials.reduce((a, b) => a + b, 0);
+          const avg = Math.round(sum / 3);
+          experimentData[surface].avg = avg;
+          document.getElementById(`${surface}-avg`).textContent = `${avg} cm`;
+          updateBarChart();
+          showToast(`Hebat! Uji coba permukaan ${surface.toUpperCase()} selesai 3x.`);
+        }
+        syncLKPDData();
+      }, 1250);
+    }
+
+    function updateBarChart() {
+      const maxDist = 150;
+      const surfaces = ['licin', 'kain', 'pasir'];
+
+      surfaces.forEach(s => {
+        const avg = experimentData[s].avg;
+        const barElem = document.getElementById(`bar${capitalize(s)}`);
+        const labelElem = document.getElementById(`labelBar${capitalize(s)}`);
+
+        if (avg > 0) {
+          const pct = Math.min(100, Math.round((avg / maxDist) * 100));
+          barElem.style.width = `${pct}%`;
+          barElem.textContent = `${avg} cm`;
+          labelElem.textContent = `${avg} cm (Rata-rata)`;
+        }
+      });
+    }
+
+    function capitalize(str) {
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
+    function savePredictionToast() {
+      playTone('success');
+      showToast("Prediksi & pertanyaanmu berhasil disimpan ke LKPD! 📝");
+      syncLKPDData();
+    }
+
+    function checkConclusion() {
+      const radios = document.getElementsByName('conclusionRadio');
+      let selected = null;
+      for (const r of radios) {
+        if (r.checked) selected = r.value;
+      }
+
+      const resBox = document.getElementById('conclusionResultBox');
+      resBox.classList.remove('hidden');
+
+      if (!selected) {
+        resBox.className = "mt-4 p-4 rounded-2xl text-xs sm:text-sm font-bold bg-amber-100 text-amber-800 border border-amber-300";
+        resBox.textContent = "Silakan pilih salah satu opsi kesimpulan terlebih dahulu.";
+        playTone('wrong');
+        return;
+      }
+
+      if (selected === 'correct') {
+        playTone('success');
+        resBox.className = "mt-4 p-4 rounded-2xl text-xs sm:text-sm font-bold bg-emerald-100 text-emerald-800 border border-emerald-300";
+        resBox.innerHTML = `🎉 <strong>JAWABAN SANGAT TEPAT!</strong><br>Kamu menyimpulkan secara ilmiah berdasarkan data pengamatan: Lantai halus menghasilkan gaya gesek paling kecil sehingga mobil meluncur terjauh. Sebaliknya, pasir memiliki gaya gesek terbesar yang menahan laju roda.`;
+        showToast("Kesimpulan ilmiah benar! Luar biasa! ⭐");
+      } else {
+        playTone('wrong');
+        resBox.className = "mt-4 p-4 rounded-2xl text-xs sm:text-sm font-bold bg-rose-100 text-rose-800 border border-rose-300";
+        resBox.innerHTML = `❌ Kurang tepat. Coba perhatikan kembali tabel data percobaan: jarak tempuh mobil di pasir hanya sedikit, sedangkan di lantai licin sangat jauh!`;
+      }
+    }
+
+    const quizQuestions = [
+      {
+        question: "Cikgu Dessy melihat seorang nelayan mendayung sampan pompong di perairan Singkep Pesisir. Gaya apakah yang digunakan nelayan saat menarik dayung dengan tangannya?",
+        options: [
+          { text: "A. Gaya Gravitasi", correct: false },
+          { text: "B. Gaya Otot", correct: true },
+          { text: "C. Gaya Magnet", correct: false },
+          { text: "D. Gaya Listrik", correct: false }
+        ],
+        explanation: "Benar! Menarik dayung menggunakan tenaga dari otot lengan manusia, sehingga merupakan Gaya Otot."
+      },
+      {
+        question: "Mengapa ban sepeda murid SDN 004 Singkep dibuat memiliki alur gerigi yang kasar dan tidak gundul?",
+        options: [
+          { text: "A. Memperbesar gaya gesek agar sepeda tidak mudah terpeleset", correct: true },
+          { text: "B. Menghilangkan gaya gravitasi bumi", correct: false },
+          { text: "C. Membuat sepeda bisa terbang melintasi laut", correct: false },
+          { text: "D. Mengubah gaya magnet menjadi gaya listrik", correct: false }
+        ],
+        explanation: "Tepat! Alur ban yang kasar memperbesar gaya gesek antara ban dan jalan sehingga tidak licin."
+      },
+      {
+        question: "Buah kelapa tua di pesisir pantai Singkep jatuh meluncur dari pohonnya ke bawah tanah. Peristiwa ini terjadi karena pengaruh gaya...",
+        options: [
+          { text: "A. Gaya Magnet", correct: false },
+          { text: "B. Gaya Pegas", correct: false },
+          { text: "C. Gaya Gravitasi Bumi", correct: true },
+          { text: "D. Gaya Listrik Statis", correct: false }
+        ],
+        explanation: "Bagus sekali! Gravitasi bumi menarik semua benda bermassa menuju pusat bumi."
+      },
+      {
+        question: "Dalam percobaan sains yang adil (fair test), apa yang harus dijaga agar selalu SAMA ketika membandingkan pengaruh permukaan lantai terhadap jarak mobil?",
+        options: [
+          { text: "A. Kekuatan dorongan awal dan jenis mobil yang digunakan", correct: true },
+          { text: "B. Warna permukaan lantai saja", correct: false },
+          { text: "C. Waktu saat matahari terbenam", correct: false },
+          { text: "D. Jumlah penonton di dalam kelas", correct: false }
+        ],
+        explanation: "Tepat! Dalam pengujian adil, variabel kontrol seperti dorongan awal dan berat mobil harus dibuat sama."
+      },
+      {
+        question: "Penggaris mika yang digosokkan ke rambut kering dapat menarik sobekan kertas kecil di meja kelas. Hal ini membuktikan adanya...",
+        options: [
+          { text: "A. Gaya Gesek Permanen", correct: false },
+          { text: "B. Gaya Listrik Statis", correct: true },
+          { text: "C. Gaya Pegas Melenting", correct: false },
+          { text: "D. Gaya Mesin Diesel", correct: false }
+        ],
+        explanation: "Sempurna! Muatan listrik berpindah karena gesekan, menciptakan gaya listrik statis yang menarik sobekan kertas."
+      }
+    ];
+
+    let currentQuizIndex = 0;
+    let quizScore = 0;
+
+    function renderCurrentQuestion() {
+      const q = quizQuestions[currentQuizIndex];
+      document.getElementById('quizQuestionNumber').textContent = `Pertanyaan ${currentQuizIndex + 1} dari ${quizQuestions.length}`;
+      document.getElementById('quizQuestionText').textContent = q.question;
+      document.getElementById('quizProgressBar').style.width = `${((currentQuizIndex + 1) / quizQuestions.length) * 100}%`;
+
+      const optionsList = document.getElementById('quizOptionsList');
+      optionsList.innerHTML = '';
+
+      const feedback = document.getElementById('quizFeedbackBox');
+      feedback.classList.add('hidden');
+      document.getElementById('quizNextBtn').classList.add('hidden');
+
+      q.options.forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.className = "w-full text-left p-3.5 rounded-2xl border-2 border-slate-200 bg-slate-50 hover:bg-sky-50 hover:border-coastal-400 font-semibold text-xs sm:text-sm text-slate-700 transition active:scale-98 flex items-center justify-between";
+        btn.innerHTML = `<span>${opt.text}</span> <i class="fa-regular fa-circle text-slate-400"></i>`;
+        btn.onclick = () => selectQuizAnswer(idx);
+        optionsList.appendChild(btn);
+      });
+    }
+
+    function selectQuizAnswer(selectedIndex) {
+      const q = quizQuestions[currentQuizIndex];
+      const selectedOption = q.options[selectedIndex];
+      const buttons = document.getElementById('quizOptionsList').children;
+      const feedback = document.getElementById('quizFeedbackBox');
+
+      // Disable all buttons
+      for (let i = 0; i < buttons.length; i++) {
+        buttons[i].disabled = true;
+        if (q.options[i].correct) {
+          buttons[i].className = "w-full text-left p-3.5 rounded-2xl border-2 border-emerald-500 bg-emerald-50 font-bold text-xs sm:text-sm text-emerald-800 flex items-center justify-between";
+          buttons[i].innerHTML = `<span>${q.options[i].text}</span> <i class="fa-solid fa-check-circle text-emerald-600"></i>`;
+        } else if (i === selectedIndex && !selectedOption.correct) {
+          buttons[i].className = "w-full text-left p-3.5 rounded-2xl border-2 border-rose-500 bg-rose-50 font-bold text-xs sm:text-sm text-rose-800 flex items-center justify-between";
+          buttons[i].innerHTML = `<span>${q.options[i].text}</span> <i class="fa-solid fa-xmark-circle text-rose-600"></i>`;
+        }
+      }
+
+      feedback.classList.remove('hidden');
+      if (selectedOption.correct) {
+        quizScore += 20;
+        playTone('success');
+        feedback.className = "p-4 rounded-2xl mb-4 font-semibold text-xs sm:text-sm bg-emerald-100 text-emerald-900 border border-emerald-300";
+        feedback.innerHTML = `🌟 <strong>Hebat Sekali!</strong> ${q.explanation}`;
+      } else {
+        playTone('wrong');
+        feedback.className = "p-4 rounded-2xl mb-4 font-semibold text-xs sm:text-sm bg-rose-100 text-rose-900 border border-rose-300";
+        feedback.innerHTML = `💡 <strong>Perhatikan:</strong> ${q.explanation}`;
+      }
+
+      document.getElementById('quizScoreDisplay').textContent = `${quizScore} / 100`;
+      document.getElementById('quizBadgeStatus').textContent = `⭐ Skor ${quizScore}`;
+      document.getElementById('quizNextBtn').classList.remove('hidden');
+    }
+
+    function nextQuizQuestion() {
+      playTone('click');
+      currentQuizIndex++;
+      if (currentQuizIndex < quizQuestions.length) {
+        renderCurrentQuestion();
+      } else {
+        finishQuiz();
+      }
+    }
+
+    function finishQuiz() {
+      playTone('success');
+      document.getElementById('quizCard').classList.add('hidden');
+      const compBox = document.getElementById('quizCompletedBox');
+      compBox.classList.remove('hidden');
+      document.getElementById('finalQuizScore').textContent = quizScore;
+      showToast(`Kuis Selesai! Skor akhirmu: ${quizScore}`);
+    }
+
+    function restartQuiz() {
+      playTone('click');
+      currentQuizIndex = 0;
+      quizScore = 0;
+      document.getElementById('quizScoreDisplay').textContent = `0 / 100`;
+      document.getElementById('quizBadgeStatus').textContent = `⭐ Bintang 0`;
+      document.getElementById('quizCard').classList.remove('hidden');
+      document.getElementById('quizCompletedBox').classList.add('hidden');
+      renderCurrentQuestion();
+    }
+
+    function syncLKPDData() {
+      const qInput = document.getElementById('studentQuestion');
+      const pInput = document.getElementById('studentPrediction');
+
+      if (qInput) {
+        document.getElementById('lkpdQuestionSummary').textContent = qInput.value || "-";
+      }
+      if (pInput) {
+        document.getElementById('lkpdPredictionSummary').textContent = pInput.options[pInput.selectedIndex].text;
+      }
+
+      // Sync Table Trials
+      const surfaces = ['licin', 'kain', 'pasir'];
+      surfaces.forEach(s => {
+        const trials = experimentData[s].trials;
+        const avg = experimentData[s].avg;
+        for (let i = 1; i <= 3; i++) {
+          const val = trials[i - 1];
+          const elem = document.getElementById(`lkpd-${s}-${i}`);
+          if (elem) elem.textContent = val ? `${val} cm` : "-";
+        }
+        const avgElem = document.getElementById(`lkpd-${s}-avg`);
+        if (avgElem) avgElem.textContent = avg ? `${avg} cm` : "-";
+      });
+
+      // Name sync
+      const nameInput = document.getElementById('lkpdStudentName');
+      const sigName = document.getElementById('studentSignatureName');
+      if (nameInput && sigName) {
+        sigName.textContent = nameInput.value.trim() || "[ Nama Murid ]";
+      }
+    }
+
+    // Auto set today's date
+    function initDate() {
+      const today = new Date();
+      const options = { day: 'numeric', month: 'long', year: 'numeric' };
+      const dateStr = today.toLocaleDateString('id-ID', options);
+      const lkpdDate = document.getElementById('lkpdDate');
+      const sigDate = document.getElementById('signatureDate');
+      if (lkpdDate) lkpdDate.value = dateStr;
+      if (sigDate) sigDate.textContent = dateStr;
+    }
+
+    function printLKPD() {
+      playTone('click');
+      syncLKPDData();
+      window.print();
+    }
+
+    function copyLKPDToClipboard() {
+      playTone('click');
+      syncLKPDData();
+      const name = document.getElementById('lkpdStudentName').value || "Murid Kelas IV";
+      const q = document.getElementById('lkpdQuestionSummary').textContent;
+      const pred = document.getElementById('lkpdPredictionSummary').textContent;
+      const ref = document.getElementById('lkpdReflectionText').value || "Sudah memahami konsep gaya gesek dan macam gaya.";
+
+      const reportText = `LAPORAN PENYELIDIKAN IPAS KELAS IV
+Topik: Macam-Macam Gaya di Sekitar Kita
+Pengembang: Cikgu Dessy - SDN 004 Singkep Pesisir (@cikgudessy)
+Nama Murid: ${name}
+---------------------------------------------
+1. Pertanyaan Penyelidikan:
+${q}
+
+2. Prediksi/Hipotesis:
+${pred}
+
+3. Hasil Uji Jarak Tempuh Rata-Rata:
+- Lantai Halus (Ubin): ${experimentData.licin.avg || 0} cm
+- Kain / Karpet: ${experimentData.kain.avg || 0} cm
+- Pasir Pantai Pesisir: ${experimentData.pasir.avg || 0} cm
+
+4. Kesimpulan:
+Semakin kasar permukaan lintasan, semakin besar gaya gesek yang timbul, sehingga jarak tempuh gerak mobil semakin pendek.
+
+5. Refleksi Murid:
+${ref}
+---------------------------------------------`;
+
+      const tempInput = document.createElement("textarea");
+      tempInput.value = reportText;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+
+      showToast("Rangkuman Laporan berhasil disalin ke Clipboard! 📋");
+    }
+
+    function simulateSendToSpreadsheet() {
+      playTone('success');
+      const name = document.getElementById('lkpdStudentName').value;
+      if (!name) {
+        showToast("Harap isi Nama Murid terlebih dahulu pada lembar LKPD!", false);
+        return;
+      }
+      showToast("Menghubungkan ke Google Sheets Cikgu Dessy...");
+      setTimeout(() => {
+        showToast("Data Berhasil Disimpan ke Spreadsheet Kelas IV SDN 004! 🚀");
+      }, 1200);
+    }
+
+    // Name input live update
+    document.addEventListener('DOMContentLoaded', () => {
+      initDate();
+      renderCurrentQuestion();
+
+      const nameInput = document.getElementById('lkpdStudentName');
+      if (nameInput) {
+        nameInput.addEventListener('input', () => {
+          document.getElementById('studentSignatureName').textContent = nameInput.value.trim() || "[ Nama Murid ]";
+        });
+      }
+    });
+  </script>
+</body>
+</html>
